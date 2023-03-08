@@ -662,7 +662,7 @@ public class ForeOrderController extends BaseController {
         //更新订单信息
         ProductOrder productOrder = new ProductOrder();
         productOrder.setProductOrder_id(order.getProductOrder_id());
-        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.CHINA);
         productOrder.setProductOrder_pay_date(time.format(new Date()));
         productOrder.setProductOrder_status((byte) 1);
 
@@ -705,7 +705,7 @@ public class ForeOrderController extends BaseController {
         //更新订单信息
         ProductOrder productOrder = new ProductOrder();
         productOrder.setProductOrder_id(order.getProductOrder_id());
-        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.CHINA);
         productOrder.setProductOrder_delivery_date(time.format(new Date()));
         productOrder.setProductOrder_status((byte) 2);
 
@@ -753,7 +753,7 @@ public class ForeOrderController extends BaseController {
         ProductOrder productOrder = new ProductOrder();
         productOrder.setProductOrder_id(order.getProductOrder_id());
         productOrder.setProductOrder_status((byte) 3);
-        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.CHINA);
         productOrder.setProductOrder_confirm_date(time.format(new Date()));
 
         boolean yn = productOrderService.update(productOrder);
@@ -940,7 +940,7 @@ public class ForeOrderController extends BaseController {
         productOrder.setProductOrder_mobile(productOrder_mobile);
         productOrder.setProductOrder_receiver(productOrder_receiver);
         productOrder.setProductOrder_detail_address(productOrder_detail_address);
-        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.CHINA);
         productOrder.setProductOrder_pay_date(time.format(new Date()));
         productOrder.setProductOrder_code(productOrder_code.toString());
         Boolean yn = productOrderService.add(productOrder);
@@ -1064,7 +1064,7 @@ public class ForeOrderController extends BaseController {
         productOrder.setProductOrder_mobile(productOrder_mobile);
         productOrder.setProductOrder_receiver(productOrder_receiver);
         productOrder.setProductOrder_detail_address(productOrder_detail_address);
-        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat(Constants.DATE, Locale.CHINA);
         productOrder.setProductOrder_pay_date(time.format(new Date()));
         productOrder.setProductOrder_code(productOrder_code.toString());
         Boolean yn = productOrderService.add(productOrder);

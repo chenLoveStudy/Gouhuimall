@@ -122,7 +122,7 @@ public class OrderController extends BaseController {
         ProductOrder productOrder = new ProductOrder();
         productOrder.setProductOrder_id(Integer.valueOf(order_id));
         productOrder.setProductOrder_status((byte) 2);
-        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
         productOrder.setProductOrder_delivery_date(time.format(new Date()));
         //更新订单信息，订单ID值为：{}, order_id
         boolean yn = productOrderService.update(productOrder);

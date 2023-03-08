@@ -148,10 +148,11 @@
 
     <select id="getTotalByDate" resultType="com.xq.tmall.entity.OrderGroup">
         SELECT
-        any_value(productOrder_pay_date) as productOrder_pay_date,any_value(count(productOrder_id)) as productOrder_count ,any_value(productOrder_status) as productOrder_status from productOrder
+        DATE_FORMAT(productOrder_pay_date,'%Y-%m-%d') productOrder_pay_date,count(productOrder_id) as productOrder_count ,productOrder_status from productOrder
         <where>
-            productOrder_pay_date BETWEEN #{beginDate} AND #{endDate}
+            productOrder_pay_date BETWEEN #{beginDate} AND #{endDate} AND productorder_status != 4
         </where>
         GROUP BY DATE_FORMAT(productOrder_pay_date,'%Y-%m-%d'),productOrder_status
+        ORDER BY productOrder_pay_date ASC,productOrder_status ASC
     </select>
 </mapper>

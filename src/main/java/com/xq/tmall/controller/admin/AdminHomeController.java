@@ -1,6 +1,7 @@
 package com.xq.tmall.controller.admin;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.xq.tmall.controller.BaseController;
 import com.xq.tmall.entity.Admin;
@@ -11,10 +12,9 @@ import com.xq.tmall.service.ProductService;
 import com.xq.tmall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,139 +34,185 @@ public class AdminHomeController extends BaseController {
     @Autowired
     private UserService userService;
 
-    //转到后台管理-主页
-    @GetMapping(value = "admin")
+    /**
+     * 转到后台管理-主页
+     * @param session session对象
+     * @param map 前台传入的Map
+     * @return 响应数据
+     * @throws ParseException 转换异常
+     */
+    @RequestMapping(value = "admin", method = RequestMethod.GET)
     public String goToPage(HttpSession session, Map<String, Object> map) throws ParseException {
-        //检查管理员权限
+        logger.info("获取管理员信息");
         Object adminId = checkAdmin(session);
         if (adminId == null) {
             return "redirect:/admin/login";
         }
-        //获取管理员信息
         Admin admin = adminService.get(null, Integer.parseInt(adminId.toString()));
         map.put("admin", admin);
-        //获取统计信息
+        logger.info("获取统计信息");
+        //产品总数
         Integer productTotal = productService.getTotal(null, new Byte[]{0, 2});
+        //用户总数
         Integer userTotal = userService.getTotal(null);
+        //订单总数
         Integer orderTotal = productOrderService.getTotal(null, new Byte[]{3});
-        //获取图表信息
-        map.put("jsonObject", getChartData(null, null));
+        logger.info("获取图表信息");
+        map.put("jsonObject", getChartData(null,null,7));
         map.put("productTotal", productTotal);
         map.put("userTotal", userTotal);
         map.put("orderTotal", orderTotal);
-        //转到后台管理-主页
+
+        logger.info("转到后台管理-主页");
         return "admin/homePage";
     }
 
-    //转到后台管理-主页-ajax
-    @GetMapping(value = "admin/home")
+    /**
+     * 转到后台管理-主页（ajax方式）
+     * @param session session对象
+     * @param map 前台传入的Map
+     * @return 响应数据
+     * @throws ParseException 转换异常
+     */
+    @RequestMapping(value = "admin/home", method = RequestMethod.GET)
     public String goToPageByAjax(HttpSession session, Map<String, Object> map) throws ParseException {
-        //检查管理员权限
+        logger.info("获取管理员信息");
         Object adminId = checkAdmin(session);
         if (adminId == null) {
             return "admin/include/loginMessage";
         }
-
-        //获取管理员信息
         Admin admin = adminService.get(null, Integer.parseInt(adminId.toString()));
         map.put("admin", admin);
-        //获取统计信息
+        logger.info("获取统计信息");
         Integer productTotal = productService.getTotal(null, new Byte[]{0, 2});
         Integer userTotal = userService.getTotal(null);
         Integer orderTotal = productOrderService.getTotal(null, new Byte[]{3});
-        //获取图表信息
-        map.put("jsonObject", getChartData(null, null));
+        logger.info("获取图表信息");
+        map.put("jsonObject", getChartData(null, null,7));
+        logger.info("获取图表信息");
+        map.put("jsonObject", getChartData(null,null,7));
         map.put("productTotal", productTotal);
         map.put("userTotal", userTotal);
         map.put("orderTotal", orderTotal);
-        //转到后台管理-主页-ajax方式
+        logger.info("转到后台管理-主页-ajax方式");
         return "admin/homeManagePage";
     }
 
-    //按日期查询图表数据-ajax
+    /**
+     * 按日期查询图表数据（ajax方式）
+     * @param beginDate 开始日期
+     * @param endDate 结束日期
+     * @return 响应数据
+     * @throws ParseException 转换异常
+     */
     @ResponseBody
-    @GetMapping(value = "admin/home/charts", produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "admin/home/charts", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     public String getChartDataByDate(@RequestParam(required = false) String beginDate, @RequestParam(required = false) String endDate) throws ParseException {
         if (beginDate != null && endDate != null) {
+            //转换日期格式
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            return getChartData(simpleDateFormat.parse(beginDate), simpleDateFormat.parse(endDate)).toJSONString();
+            return getChartData(simpleDateFormat.parse(beginDate), simpleDateFormat.parse(endDate),7).toJSONString();
         } else {
-            return getChartData(null, null).toJSONString();
+            return getChartData(null, null,7).toJSONString();
         }
     }
 
-    //获取图表的JSON数据
-    private JSONObject getChartData(Date beginDate, Date endDate) throws ParseException {
+    /**
+     * 按日期获取图表数据
+     * @param beginDate 开始日期
+     * @param endDate 结束日期
+     * @param days 天数
+     * @return 图表数据的JSON对象
+     * @throws ParseException 转换异常
+     */
+    private JSONObject getChartData(Date beginDate,Date endDate,int days) throws ParseException {
         JSONObject jsonObject = new JSONObject();
-        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
-        SimpleDateFormat timeSpecial = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        SimpleDateFormat time2 = new SimpleDateFormat("MM/dd", Locale.CHINA);
+        SimpleDateFormat timeSpecial = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+        //如果没有指定开始和结束日期
         if (beginDate == null || endDate == null) {
+            //指定一周前的日期为开始日期
             Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.DATE, -7);
+            cal.add(Calendar.DATE, 1-days);
             beginDate = time.parse(time.format(cal.getTime()));
+            //指定当前日期为结束日期
             cal = Calendar.getInstance();
             endDate = cal.getTime();
         } else {
             beginDate = time.parse(time.format(beginDate));
             endDate = timeSpecial.parse(time.format(endDate) + " 23:59:59");
         }
-        String[] dateStr = new String[7];
-        SimpleDateFormat time2 = new SimpleDateFormat("MM/dd", Locale.UK);
-        //获取时间段数组
-        for (int i = 0; i < dateStr.length; i++) {
+        logger.info("根据订单状态分类");
+        //未付款订单数统计数组
+        int[] orderUnpaidArray = new int[7];
+        //未发货订单数统计叔祖
+        int[] orderNotShippedArray = new int[7];
+        //未确认订单数统计数组
+        int[] orderUnconfirmedArray = new int[7];
+        //交易成功订单数统计数组
+        int[] orderSuccessArray = new int[7];
+        //总交易订单数统计数组
+        int[] orderTotalArray = new int[7];
+        logger.info("从数据库中获取统计的订单集合数据");
+        List<OrderGroup> orderGroupList = productOrderService.getTotalByDate(beginDate, endDate);
+        //初始化日期数组
+        JSONArray dateStr = new JSONArray(days);
+        //按指定的天数进行循环
+        for (int i = 0; i < days; i++) {
+            //格式化日期串（MM/dd）并放入日期数组中
             Calendar cal = Calendar.getInstance();
             cal.setTime(beginDate);
             cal.add(Calendar.DATE, i);
-            dateStr[i] = time2.format(cal.getTime());
-        }
-        //获取总交易额订单列表
-        List<OrderGroup> orderGroupList = productOrderService.getTotalByDate(beginDate, endDate);
-        //根据订单状态分类
-        //总交易订单数组
-        int[] orderTotalArray = new int[7];
-        //未付款订单数组
-        int[] orderUnpaidArray = new int[7];
-        //未发货订单叔祖
-        int[] orderNotShippedArray = new int[7];
-        //未确认订单数组
-        int[] orderUnconfirmedArray = new int[7];
-        //交易成功数组
-        int[] orderSuccessArray = new int[7];
-        for (OrderGroup orderGroup : orderGroupList) {
-            int index = 0;
-            for (int j = 0; j < dateStr.length; j++) {
-                if (dateStr[j].equals(orderGroup.getProductOrder_pay_date())) {
-                    index = j;
+            String formatDate = time2.format(cal.getTime());
+            dateStr.add(formatDate);
+            //该天的订单总数
+            int orderCount = 0;
+            //循环订单集合数据的结果集
+            for(int j = 0; j < orderGroupList.size(); j++){
+                OrderGroup orderGroup = orderGroupList.get(j);
+                //如果该订单日期与当前日期一致
+                cal.setTime(orderGroup.getProductOrder_pay_date());
+                String cur=time2.format(cal.getTime());//判断该订单日期与当前日期一致
+                if(cur.equals(formatDate)){
+                    //从结果集中移除数据
+                    orderGroupList.remove(j);
+                    //删除后,下标应该从0开始,因为删除了,所以不会重复
+                    j=-1;//for循环最后还会+1,到最后是0
+                    //根据订单状态将统计结果存入对应的订单状态数组中
+                    switch (orderGroup.getProductOrder_status()) {
+                        case 0:
+                            //未付款订单
+                            orderUnpaidArray[i] = orderGroup.getProductOrder_count();
+                            break;
+                        case 1:
+                            //未发货订单
+                            orderNotShippedArray[i] = orderGroup.getProductOrder_count();
+                            break;
+                        case 2:
+                            //未确认订单
+                            orderUnconfirmedArray[i] = orderGroup.getProductOrder_count();
+                            break;
+                        case 3:
+                            //交易成功订单
+                            orderSuccessArray[i] = orderGroup.getProductOrder_count();
+                            break;
+                    }
+
+                    //累加当前日期的订单总数
+                    orderCount += orderGroup.getProductOrder_count();
                 }
             }
-            switch (orderGroup.getProductOrder_status()) {
-                case 0:
-                    orderUnpaidArray[index] = orderGroup.getProductOrder_count();
-                    break;
-                case 1:
-                    orderNotShippedArray[index] = orderGroup.getProductOrder_count();
-                    break;
-                case 2:
-                    orderUnconfirmedArray[index] = orderGroup.getProductOrder_count();
-                    break;
-                case 3:
-                    orderSuccessArray[index] = orderGroup.getProductOrder_count();
-                    break;
-                default:
-                    throw new RuntimeException("错误的订单类型!");
-            }
+            //将统计的订单总数存入总交易订单数统计数组
+            orderTotalArray[i] = orderCount;
         }
-        //获取总交易订单数组
-        for (int i = 0; i < dateStr.length; i++) {
-            orderTotalArray[i] = orderUnpaidArray[i] + orderNotShippedArray[i] + orderUnconfirmedArray[i] + orderSuccessArray[i];
-        }
-        //返回结果集map
-        jsonObject.put("orderTotalArray", JSON.parseArray(JSON.toJSONString(orderTotalArray)));
-        jsonObject.put("orderUnpaidArray", JSON.parseArray(JSON.toJSONString(orderUnpaidArray)));
-        jsonObject.put("orderNotShippedArray", JSON.parseArray(JSON.toJSONString(orderNotShippedArray)));
-        jsonObject.put("orderUnconfirmedArray", JSON.parseArray(JSON.toJSONString(orderUnconfirmedArray)));
-        jsonObject.put("orderSuccessArray", JSON.parseArray(JSON.toJSONString(orderSuccessArray)));
-        jsonObject.put("dateStr", JSON.parseArray(JSON.toJSONString(dateStr)));
+        logger.info("返回结果集map");
+        jsonObject.put("orderTotalArray", orderTotalArray);
+        jsonObject.put("orderUnpaidArray", orderUnpaidArray);
+        jsonObject.put("orderNotShippedArray", orderNotShippedArray);
+        jsonObject.put("orderUnconfirmedArray", orderUnconfirmedArray);
+        jsonObject.put("orderSuccessArray", orderSuccessArray);
+        jsonObject.put("dateStr",dateStr);
         return jsonObject;
     }
 }

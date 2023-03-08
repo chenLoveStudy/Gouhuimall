@@ -165,7 +165,7 @@ public class ProductController extends BaseController {
         product.setProduct_sale_price(product_sale_price);
         product.setProduct_price(product_price);
         product.setProduct_isEnabled(product_isEnabled);
-        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
         product.setProduct_create_date(time.format(new Date()));
         //添加产品信息
         boolean yn = productService.add(product);
@@ -282,7 +282,7 @@ public class ProductController extends BaseController {
         product.setProduct_sale_price(product_sale_price);
         product.setProduct_price(product_price);
         product.setProduct_isEnabled(product_isEnabled);
-        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK);
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
         product.setProduct_create_date(time.format(new Date()));
         //更新产品信息，产品ID值为：{}, product_id
         boolean yn = productService.update(product);
