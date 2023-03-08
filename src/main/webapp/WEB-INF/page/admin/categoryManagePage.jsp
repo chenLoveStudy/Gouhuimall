@@ -95,7 +95,7 @@
 
             //设置样式
             $("#div_home_title").children("span").text(title);
-            document.title = "Tmall管理后台 - " + title;
+            document.title = "购惠商城管理后台 - " + title;
             //ajax请求页面
             ajaxUtil.getPage(url, null, true);
         }
