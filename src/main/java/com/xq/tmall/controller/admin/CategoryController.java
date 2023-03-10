@@ -101,6 +101,8 @@ public class CategoryController extends BaseController {
         Category category = new Category();
         category.setCategory_name(category_name);
         category.setCategory_image_src(category_image_src.substring(category_image_src.lastIndexOf("/") + 1));
+        //设置分类显示
+        category.setDel_flag(0);
         //添加分类信息
         boolean yn = categoryService.add(category);
         if (yn) {
