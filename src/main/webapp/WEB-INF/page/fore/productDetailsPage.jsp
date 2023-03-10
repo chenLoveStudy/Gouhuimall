@@ -4,7 +4,7 @@
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_login.js"></script>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_productDetails.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_productDetails.css" rel="stylesheet">
-    <title>${requestScope.product.product_name}-tmall.com天猫</title>
+    <title>${requestScope.product.product_name}-购惠网</title>
 </head>
 <body>
 <nav>
@@ -12,16 +12,16 @@
     <div class="header">
         <a href="${pageContext.request.contextPath}"><img
                 src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/tmallLogoB.png"></a>
-        <span class="shopNameHeader">贤趣${requestScope.product.product_category.category_name}官方旗舰店</span>
+        <span class="shopNameHeader">购惠${requestScope.product.product_category.category_name}官方旗舰店</span>
         <input id="tid" type="hidden" value="${requestScope.product.product_category.category_id}"/>
         <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/detailsHeaderA.png"
              class="shopAssessHeader">
         <div class="shopSearchHeader">
             <form action="${pageContext.request.contextPath}/product" method="get">
                 <div class="shopSearchInput">
-                    <input type="text" class="searchInput" name="product_name" placeholder="搜索 天猫 商品/品牌/店铺"
+                    <input type="text" class="searchInput" name="product_name" placeholder="搜索    商品/品牌/店铺"
                            maxlength="50">
-                    <input type="submit" value="搜天猫" class="searchTmall">
+                    <input type="submit" value="搜购惠" class="searchTmall">
                 </div>
                 <input type="submit" value="搜本店" class="searchShop">
             </form>
@@ -83,7 +83,7 @@
         </div>
         <div class="qrcodeFooter">
             <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/scan_icon2.png">
-            <p>打开 <a href="https://www.tmall.com/wow/portal/act/app-download">手机天猫</a> | <a
+            <p>打开 <a href="https://www.tmall.com/wow/portal/act/app-download">手机购惠</a> | <a
                     href="https://www.taobao.com/m">手机淘宝</a>扫一扫登录</p>
         </div>
         <div class="loginLinks">

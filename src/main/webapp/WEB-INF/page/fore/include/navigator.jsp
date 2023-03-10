@@ -18,7 +18,7 @@
         <p id="container_login">
             <c:choose>
                 <c:when test="${requestScope.user.user_name==null}">
-                    <em>喵，欢迎来天猫</em>
+                    <em>欢迎来到购惠商城</em>
                     <a href="${pageContext.request.contextPath}/login">请登录</a>
                     <a href="${pageContext.request.contextPath}/register">免费注册</a>
                 </c:when>
@@ -33,7 +33,7 @@
         <ul class="quick_li">
             <li class="quick_li_MyTaobao">
                 <div class="sn_menu">
-                    <a href="${pageContext.request.contextPath}/userDetails">我的淘宝<b></b></a>
+                    <a href="${pageContext.request.contextPath}/userDetails">我的购惠<b></b></a>
                     <div class="quick_menu">
                         <a href="${pageContext.request.contextPath}/order/0/10">已买到的宝贝</a>
                         <a href="#">已卖出的宝贝</a>
@@ -62,7 +62,7 @@
                     <b></b>
                 </div>
             </li>
-            <li class="quick_home"><a href="${pageContext.request.contextPath}">淘宝网</a></li>
+            <li class="quick_home"><a href="${pageContext.request.contextPath}">购惠网</a></li>
             <li class="quick_DirectPromo">
                 <div class="sn_menu">
                     <a href="#">商家支持<b></b></a>
@@ -71,12 +71,12 @@
                             <li>
                                 <h3>商家：</h3>
                                 <a href="">商家中心</a>
-                                <a href="">天猫规则</a>
+                                <a href="">购惠规则</a>
                                 <a href="">商家入驻</a>
                                 <a href="">运营服务</a>
                                 <a href="">商家品控</a>
                                 <a href="">商家工具</a>
-                                <a href="">天猫智库</a>
+                                <a href="">购惠智库</a>
                                 <a href="">喵言喵语</a>
                             </li>
                             <li>
@@ -95,7 +95,7 @@
                         <div class="site-hot">
                             <h2>热点推荐<span>Hot</span></h2>
                             <ul>
-                                <li><a href="">天猫超市</a></li>
+                                <li><a href="">购惠生活</a></li>
                                 <li><a href="">喵鲜生</a></li>
                                 <li><a href="">科技新品</a></li>
                                 <li><a href="">女装新品</a></li>
@@ -108,7 +108,7 @@
                                 <li><a href="">吃乐会</a></li>
                                 <li><a href="">企业采购</a></li>
                                 <li><a href="">会员积分</a></li>
-                                <li><a href="">天猫国际</a></li>
+                                <li><a href="">购惠电器</a></li>
                                 <li><a href="">品质频道</a></li>
                             </ul>
                         </div>
@@ -135,10 +135,10 @@
                         <div class="site-brand">
                             <h2>品牌风尚<span>Brand</span></h2>
                             <ul>
-                                <li><a href="">尚天猫</a></li>
+                                <li><a href="">购惠网</a></li>
                                 <li><a href="">大牌街</a></li>
                                 <li><a href="">潮牌街</a></li>
-                                <li><a href="">天猫原创</a></li>
+                                <li><a href="">购惠原创</a></li>
                                 <li><a href="">什么牌子好</a></li>
                             </ul>
                         </div>

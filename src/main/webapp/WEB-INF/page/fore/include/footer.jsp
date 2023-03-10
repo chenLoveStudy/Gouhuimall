@@ -3,7 +3,7 @@
 <div class="footer-copyright">
     <div class="footer">
         <p>
-            <a href="http://pages.tmall.com/wow/seller/act/zhaoshangproduce" target="_blank">关于天猫</a>
+            <a href="http://pages.tmall.com/wow/seller/act/zhaoshangproduce" target="_blank">关于购惠</a>
             <a href="http://service.tmall.com/support/tmall/tmallHelp.htm" target="_blank">帮助中心</a>
             <a href="http://open.taobao.com" target="_blank">开放平台</a>
             <a href="http://job.alibaba.com/zhaopin/index.htm" target="_blank">诚聘英才</a>
@@ -54,7 +54,7 @@
                 浙公网安备 33010002000120号
             </a>
             <br/>
-            <span style="font-weight: bold;">© 2018 贤趣开发小组 版权所有</span>
+            <span style="font-weight: bold;">© 2023 购惠商城</span>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;你知道什么是996.ICU吗？</span>
             <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"/></a>
         </div>

@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_orderSuccessPage.css" rel="stylesheet"/>
-    <title>交易成功 - Tmall.com天猫-理想生活上天猫</title>
+    <title>交易成功 - 购惠网</title>
 </head>
 <body>
 <nav>
@@ -16,7 +16,7 @@
     <div class="shopSearchHeader">
         <form action="${pageContext.request.contextPath}/product" method="get">
             <div class="shopSearchInput">
-                <input type="text" class="searchInput" name="product_name" placeholder="搜索 天猫 商品/品牌/店铺"
+                <input type="text" class="searchInput" name="product_name" placeholder="搜索    商品/品牌/店铺"
                        maxlength="50">
                 <input type="submit" value="搜 索" class="searchBtn">
             </div>
