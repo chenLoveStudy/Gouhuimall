@@ -11,7 +11,7 @@
  Target Server Version : 80027
  File Encoding         : 65001
 
- Date: 08/03/2023 23:25:04
+ Date: 03/04/2023 00:38:16
 */
 
 SET NAMES utf8mb4;
@@ -3801,7 +3801,7 @@ CREATE TABLE `admin`  (
 -- ----------------------------
 INSERT INTO `admin` VALUES (1, 'MRJIANG', 'MRJIANG', '123456', '86ed0506-be90-4808-89da-3b169973249a.jpg');
 INSERT INTO `admin` VALUES (2, 'demilehan', '酒窝', '123456', '3dafa98f-c13e-4f28-83b9-34f3b579dcd0.jpg');
-INSERT INTO `admin` VALUES (3, 'admin', 'chenguan', 'admin', '6fd35676-6e7b-48c4-b13e-2d26406e3c6d.jpg');
+INSERT INTO `admin` VALUES (3, 'admin', 'chenguan', 'admin', '21562fa9-36ff-48b0-83d6-9654248fffeb.png');
 INSERT INTO `admin` VALUES (4, 'a1209577113', '如有巧合丶', '123456', '2bd5d0af-40db-4d2d-a8ec-564e9f4e39b2.jpg');
 
 -- ----------------------------
@@ -3814,7 +3814,7 @@ CREATE TABLE `category`  (
   `category_image_src` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '类别图片',
   `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标识(1删除 0未删除）',
   PRIMARY KEY (`category_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '类别表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '类别表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of category
@@ -3835,6 +3835,7 @@ INSERT INTO `category` VALUES (13, '家纺 /家饰 /鲜花', 'e9b80ef3-7a74-4ee9
 INSERT INTO `category` VALUES (14, '医药保健', '0029c7ee-6c66-4b3a-887b-475ef3a6bdee.jpg', 0);
 INSERT INTO `category` VALUES (15, '厨具 /收纳 /宠物', 'da6f2676-68fc-411c-87d7-490db6b25b31.jpg', 0);
 INSERT INTO `category` VALUES (16, '图书音像', '4601eb3f-2a7a-45d2-809d-8d0ba2260aed.jpg', 0);
+INSERT INTO `category` VALUES (21, '测试显示', '8c00f960-f139-4646-813a-b89f17cc5776.png', 1);
 
 -- ----------------------------
 -- Table structure for product
@@ -3852,7 +3853,7 @@ CREATE TABLE `product`  (
   PRIMARY KEY (`product_id`) USING BTREE,
   INDEX `product_ibfk_1`(`product_category_id`) USING BTREE,
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`product_category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 91 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 102 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -3971,7 +3972,7 @@ CREATE TABLE `productimage`  (
   PRIMARY KEY (`productimage_id`) USING BTREE,
   INDEX `productimage_product_id`(`productimage_product_id`) USING BTREE,
   CONSTRAINT `productimage_ibfk_1` FOREIGN KEY (`productimage_product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1041 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品图片表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1067 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品图片表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of productimage
@@ -4972,7 +4973,7 @@ CREATE TABLE `productorder`  (
   INDEX `productorder_ibfk_2`(`productorder_user_id`) USING BTREE,
   CONSTRAINT `productorder_ibfk_1` FOREIGN KEY (`productorder_address`) REFERENCES `address` (`address_areaId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `productorder_ibfk_2` FOREIGN KEY (`productorder_user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 227 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品订单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 242 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品订单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of productorder
@@ -5207,7 +5208,18 @@ INSERT INTO `productorder` VALUES (227, '20230308172806021', '460105', 'dsad', '
 INSERT INTO `productorder` VALUES (228, '20230308173801021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-08 17:38:03', '2023-03-08 18:13:10', '2023-03-08 20:59:55', 3, 21);
 INSERT INTO `productorder` VALUES (229, '20230308181358021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-08 18:14:00', '2023-03-08 20:55:29', '2023-03-08 20:59:48', 3, 21);
 INSERT INTO `productorder` VALUES (232, '20230308213927021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-08 22:52:57', '2023-03-08 23:08:13', '2023-03-08 23:13:40', 3, 21);
-INSERT INTO `productorder` VALUES (233, '20230308231548021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-08 23:15:48', NULL, NULL, 0, 21);
+INSERT INTO `productorder` VALUES (233, '20230308231548021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-08 23:15:48', NULL, NULL, 4, 21);
+INSERT INTO `productorder` VALUES (234, '20230308233653021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-08 23:36:53', NULL, NULL, 0, 21);
+INSERT INTO `productorder` VALUES (235, '20230310161408021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-10 16:14:50', '2023-03-10 17:01:13', NULL, 2, 21);
+INSERT INTO `productorder` VALUES (236, '20230310170149022', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-10 17:02:42', '2023-03-10 17:11:19', '2023-03-10 17:13:14', 3, 22);
+INSERT INTO `productorder` VALUES (237, '20230310170655022', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-10 17:06:55', NULL, NULL, 0, 22);
+INSERT INTO `productorder` VALUES (238, '20230310170732022', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-10 17:07:32', NULL, NULL, 4, 22);
+INSERT INTO `productorder` VALUES (239, '20230310170845022', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-10 17:13:37', NULL, NULL, 1, 22);
+INSERT INTO `productorder` VALUES (240, '20230325121635021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-03-25 12:17:24', '2023-03-25 12:17:36', NULL, 2, 21);
+INSERT INTO `productorder` VALUES (241, '20230402172713021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-04-02 17:27:15', NULL, NULL, 1, 21);
+INSERT INTO `productorder` VALUES (242, '20230402223639021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-04-02 22:36:39', NULL, NULL, 0, 21);
+INSERT INTO `productorder` VALUES (243, '20230402223713021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-04-02 22:37:13', NULL, NULL, 0, 21);
+INSERT INTO `productorder` VALUES (244, '20230402223759021', '460105', 'dsad', '454210', 'dasa', '13721458951', '2023-04-02 22:37:59', NULL, NULL, 0, 21);
 
 -- ----------------------------
 -- Table structure for productorderitem
@@ -5218,7 +5230,7 @@ CREATE TABLE `productorderitem`  (
   `productorderitem_number` smallint(0) UNSIGNED NOT NULL COMMENT '数量',
   `productorderitem_price` decimal(10, 2) NOT NULL COMMENT '单价',
   `productorderitem_product_id` int(0) NOT NULL COMMENT '关联产品id',
-  `productorderitem_order_id` int(0) NULL DEFAULT NULL COMMENT '关联订单id',
+  `productorderitem_order_id` int(0) NULL DEFAULT NULL COMMENT '关联订单id\r\n(若商品在购物车中则关联订单id为空null,区分是购物车项和订单项的依据)',
   `productorderitem_user_id` int(0) NOT NULL COMMENT '关联用户id',
   `productorderitem_userMessage` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户备注',
   PRIMARY KEY (`productorderitem_id`) USING BTREE,
@@ -5228,7 +5240,7 @@ CREATE TABLE `productorderitem`  (
   CONSTRAINT `productorderitem_ibfk_1` FOREIGN KEY (`productorderitem_product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `productorderitem_ibfk_2` FOREIGN KEY (`productorderitem_order_id`) REFERENCES `productorder` (`productorder_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `productorderitem_ibfk_3` FOREIGN KEY (`productorderitem_user_id`) REFERENCES `user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 290 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品订单详细表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 312 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品订单详细表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of productorderitem
@@ -5500,13 +5512,29 @@ INSERT INTO `productorderitem` VALUES (286, 1, 49.00, 41, 223, 21, '');
 INSERT INTO `productorderitem` VALUES (287, 1, 4088.00, 45, 224, 21, '');
 INSERT INTO `productorderitem` VALUES (288, 1, 569.00, 44, 225, 21, '');
 INSERT INTO `productorderitem` VALUES (289, 1, 2599.00, 42, 226, 21, '');
-INSERT INTO `productorderitem` VALUES (290, 1, 2499.00, 93, NULL, 21, NULL);
+INSERT INTO `productorderitem` VALUES (290, 1, 2499.00, 93, 235, 21, '');
 INSERT INTO `productorderitem` VALUES (291, 1, 2499.00, 93, 227, 21, '');
-INSERT INTO `productorderitem` VALUES (292, 1, 1299.00, 92, NULL, 21, NULL);
+INSERT INTO `productorderitem` VALUES (292, 1, 1299.00, 92, 235, 21, '');
 INSERT INTO `productorderitem` VALUES (293, 1, 2599.00, 42, 228, 21, '');
 INSERT INTO `productorderitem` VALUES (294, 1, 2599.00, 42, 229, 21, '');
 INSERT INTO `productorderitem` VALUES (297, 1, 2599.00, 42, 232, 21, '');
 INSERT INTO `productorderitem` VALUES (298, 1, 2599.00, 42, 233, 21, '');
+INSERT INTO `productorderitem` VALUES (299, 1, 2599.00, 42, 234, 21, '');
+INSERT INTO `productorderitem` VALUES (300, 1, 2499.00, 93, 236, 22, '');
+INSERT INTO `productorderitem` VALUES (301, 1, 569.00, 44, 236, 22, '');
+INSERT INTO `productorderitem` VALUES (302, 1, 2599.00, 42, 236, 22, '');
+INSERT INTO `productorderitem` VALUES (303, 2, 4998.00, 93, 237, 22, '');
+INSERT INTO `productorderitem` VALUES (304, 1, 2499.00, 93, 238, 22, '');
+INSERT INTO `productorderitem` VALUES (305, 1, 1299.00, 92, 238, 22, '');
+INSERT INTO `productorderitem` VALUES (306, 1, 2499.00, 93, 239, 22, '');
+INSERT INTO `productorderitem` VALUES (307, 1, 569.00, 44, 239, 22, '');
+INSERT INTO `productorderitem` VALUES (308, 1, 4499.00, 91, 239, 22, '');
+INSERT INTO `productorderitem` VALUES (309, 3, 7497.00, 93, 240, 21, '');
+INSERT INTO `productorderitem` VALUES (311, 1, 2499.00, 93, 241, 21, '');
+INSERT INTO `productorderitem` VALUES (312, 1, 2499.00, 93, 242, 21, '');
+INSERT INTO `productorderitem` VALUES (313, 1, 999.00, 47, 243, 21, '');
+INSERT INTO `productorderitem` VALUES (314, 1, 2499.00, 93, 244, 21, '');
+INSERT INTO `productorderitem` VALUES (315, 1, 2599.00, 42, 244, 21, '');
 
 -- ----------------------------
 -- Table structure for property
@@ -5524,76 +5552,76 @@ CREATE TABLE `property`  (
 -- ----------------------------
 -- Records of property
 -- ----------------------------
-INSERT INTO `property` VALUES (1, '材质成分', 1);
-INSERT INTO `property` VALUES (2, '服装版型', 1);
-INSERT INTO `property` VALUES (3, '风格', 1);
-INSERT INTO `property` VALUES (4, '衣长', 1);
-INSERT INTO `property` VALUES (5, '袖长', 1);
-INSERT INTO `property` VALUES (6, '领型', 1);
-INSERT INTO `property` VALUES (7, '图案', 1);
-INSERT INTO `property` VALUES (8, '品牌', 1);
-INSERT INTO `property` VALUES (9, '适用年龄', 1);
-INSERT INTO `property` VALUES (10, '年份季节', 1);
-INSERT INTO `property` VALUES (11, '颜色分类', 1);
-INSERT INTO `property` VALUES (12, '尺码', 1);
-INSERT INTO `property` VALUES (13, '材质成分', 2);
-INSERT INTO `property` VALUES (14, '服装版型', 2);
-INSERT INTO `property` VALUES (15, '风格', 2);
-INSERT INTO `property` VALUES (16, '衣长', 2);
-INSERT INTO `property` VALUES (17, '袖长', 2);
-INSERT INTO `property` VALUES (18, '领型', 2);
-INSERT INTO `property` VALUES (19, '图案', 2);
-INSERT INTO `property` VALUES (20, '品牌', 2);
-INSERT INTO `property` VALUES (21, '适用年龄', 2);
-INSERT INTO `property` VALUES (22, '年份季节', 2);
-INSERT INTO `property` VALUES (23, '颜色分类', 2);
-INSERT INTO `property` VALUES (24, '尺码', 2);
-INSERT INTO `property` VALUES (25, '品牌', 3);
-INSERT INTO `property` VALUES (26, '上市年份季节', 3);
-INSERT INTO `property` VALUES (27, '帮面材质', 3);
-INSERT INTO `property` VALUES (28, '鞋底材质', 3);
-INSERT INTO `property` VALUES (29, '鞋头款式', 3);
-INSERT INTO `property` VALUES (30, '后跟高', 3);
-INSERT INTO `property` VALUES (31, '跟底款式', 3);
-INSERT INTO `property` VALUES (32, '鞋帮高度', 3);
-INSERT INTO `property` VALUES (33, '颜色分类', 3);
-INSERT INTO `property` VALUES (34, '尺码', 3);
-INSERT INTO `property` VALUES (35, '后帮', 3);
+INSERT INTO `property` VALUES (1, '材质成分', 6);
+INSERT INTO `property` VALUES (2, '服装版型', 6);
+INSERT INTO `property` VALUES (3, '风格', 6);
+INSERT INTO `property` VALUES (4, '衣长', 6);
+INSERT INTO `property` VALUES (5, '袖长', 6);
+INSERT INTO `property` VALUES (6, '领型', 6);
+INSERT INTO `property` VALUES (7, '图案', 6);
+INSERT INTO `property` VALUES (8, '品牌', 6);
+INSERT INTO `property` VALUES (9, '适用年龄', 6);
+INSERT INTO `property` VALUES (10, '年份季节', 6);
+INSERT INTO `property` VALUES (11, '颜色分类', 6);
+INSERT INTO `property` VALUES (12, '尺码', 6);
+INSERT INTO `property` VALUES (13, '材质成分', 7);
+INSERT INTO `property` VALUES (14, '服装版型', 7);
+INSERT INTO `property` VALUES (15, '风格', 7);
+INSERT INTO `property` VALUES (16, '衣长', 7);
+INSERT INTO `property` VALUES (17, '袖长', 7);
+INSERT INTO `property` VALUES (18, '领型', 7);
+INSERT INTO `property` VALUES (19, '图案', 7);
+INSERT INTO `property` VALUES (20, '品牌', 7);
+INSERT INTO `property` VALUES (21, '适用年龄', 7);
+INSERT INTO `property` VALUES (22, '年份季节', 7);
+INSERT INTO `property` VALUES (23, '颜色分类', 7);
+INSERT INTO `property` VALUES (24, '尺码', 7);
+INSERT INTO `property` VALUES (25, '品牌', 5);
+INSERT INTO `property` VALUES (26, '上市年份季节', 5);
+INSERT INTO `property` VALUES (27, '帮面材质', 5);
+INSERT INTO `property` VALUES (28, '鞋底材质', 5);
+INSERT INTO `property` VALUES (29, '鞋头款式', 5);
+INSERT INTO `property` VALUES (30, '后跟高', 5);
+INSERT INTO `property` VALUES (31, '跟底款式', 5);
+INSERT INTO `property` VALUES (32, '鞋帮高度', 5);
+INSERT INTO `property` VALUES (33, '颜色分类', 5);
+INSERT INTO `property` VALUES (34, '尺码', 5);
+INSERT INTO `property` VALUES (35, '后帮', 5);
 INSERT INTO `property` VALUES (41, '是否商场同款', 5);
-INSERT INTO `property` VALUES (42, '品牌', 5);
-INSERT INTO `property` VALUES (43, '型号', 5);
-INSERT INTO `property` VALUES (44, '机芯类型', 5);
-INSERT INTO `property` VALUES (45, '手表种类', 5);
-INSERT INTO `property` VALUES (46, '风格', 5);
-INSERT INTO `property` VALUES (47, '表带材质', 5);
-INSERT INTO `property` VALUES (48, '形状', 5);
-INSERT INTO `property` VALUES (49, '显示方式', 5);
-INSERT INTO `property` VALUES (50, '上市时间', 5);
-INSERT INTO `property` VALUES (51, '颜色分类', 5);
-INSERT INTO `property` VALUES (52, '防水深度', 5);
-INSERT INTO `property` VALUES (53, '品牌产地', 5);
-INSERT INTO `property` VALUES (54, '证书编号', 6);
-INSERT INTO `property` VALUES (55, '证书状态', 6);
-INSERT INTO `property` VALUES (56, '产品名称', 6);
-INSERT INTO `property` VALUES (57, '3C规格型号', 6);
-INSERT INTO `property` VALUES (58, '产品名称', 6);
-INSERT INTO `property` VALUES (59, '品牌名称', 6);
+INSERT INTO `property` VALUES (42, '品牌', 3);
+INSERT INTO `property` VALUES (43, '型号', 3);
+INSERT INTO `property` VALUES (44, '机芯类型', 3);
+INSERT INTO `property` VALUES (45, '手表种类', 3);
+INSERT INTO `property` VALUES (46, '风格', 3);
+INSERT INTO `property` VALUES (47, '表带材质', 3);
+INSERT INTO `property` VALUES (48, '形状', 3);
+INSERT INTO `property` VALUES (49, '显示方式', 3);
+INSERT INTO `property` VALUES (50, '上市时间', 3);
+INSERT INTO `property` VALUES (51, '颜色分类', 3);
+INSERT INTO `property` VALUES (52, '防水深度', 3);
+INSERT INTO `property` VALUES (53, '品牌产地', 3);
+INSERT INTO `property` VALUES (54, '证书编号', 1);
+INSERT INTO `property` VALUES (55, '证书状态', 1);
+INSERT INTO `property` VALUES (56, '产品名称', 1);
+INSERT INTO `property` VALUES (57, '3C规格型号', 1);
+INSERT INTO `property` VALUES (58, '产品名称', 1);
+INSERT INTO `property` VALUES (59, '品牌名称', 1);
 INSERT INTO `property` VALUES (60, 'CPU型号', 1);
 INSERT INTO `property` VALUES (61, '机身颜色', 1);
 INSERT INTO `property` VALUES (62, '网络模式', 1);
-INSERT INTO `property` VALUES (63, '品牌', 7);
-INSERT INTO `property` VALUES (64, '安全等级', 7);
-INSERT INTO `property` VALUES (65, '材质成分', 7);
-INSERT INTO `property` VALUES (66, '货号', 7);
-INSERT INTO `property` VALUES (67, '适用性别', 7);
-INSERT INTO `property` VALUES (68, '颜色分类', 7);
-INSERT INTO `property` VALUES (69, '参考身高', 7);
-INSERT INTO `property` VALUES (70, '款式', 7);
-INSERT INTO `property` VALUES (71, '风格', 7);
-INSERT INTO `property` VALUES (72, '适用季节', 7);
-INSERT INTO `property` VALUES (73, '面料', 7);
-INSERT INTO `property` VALUES (74, '衣门襟', 7);
-INSERT INTO `property` VALUES (75, '袖长', 7);
+INSERT INTO `property` VALUES (63, '品牌', 10);
+INSERT INTO `property` VALUES (64, '安全等级', 10);
+INSERT INTO `property` VALUES (65, '材质成分', 10);
+INSERT INTO `property` VALUES (66, '货号', 10);
+INSERT INTO `property` VALUES (67, '适用性别', 10);
+INSERT INTO `property` VALUES (68, '颜色分类', 10);
+INSERT INTO `property` VALUES (69, '参考身高', 10);
+INSERT INTO `property` VALUES (70, '款式', 10);
+INSERT INTO `property` VALUES (71, '风格', 10);
+INSERT INTO `property` VALUES (72, '适用季节', 10);
+INSERT INTO `property` VALUES (73, '面料', 10);
+INSERT INTO `property` VALUES (74, '衣门襟', 10);
+INSERT INTO `property` VALUES (75, '袖长', 10);
 INSERT INTO `property` VALUES (76, '生产许可编号', 8);
 INSERT INTO `property` VALUES (77, '产品标准号', 8);
 INSERT INTO `property` VALUES (78, '厂名', 8);
@@ -5640,21 +5668,21 @@ INSERT INTO `property` VALUES (118, '配送频次', 9);
 INSERT INTO `property` VALUES (119, '特产品类', 9);
 INSERT INTO `property` VALUES (120, '价格', 9);
 INSERT INTO `property` VALUES (121, '水果种类', 9);
-INSERT INTO `property` VALUES (122, '证书编号', 10);
-INSERT INTO `property` VALUES (123, '证书状态', 10);
-INSERT INTO `property` VALUES (124, '产品名称', 10);
-INSERT INTO `property` VALUES (125, '3C规格型号', 10);
-INSERT INTO `property` VALUES (127, '保修期', 10);
-INSERT INTO `property` VALUES (128, '品牌', 10);
-INSERT INTO `property` VALUES (129, '型号', 10);
-INSERT INTO `property` VALUES (130, '能效等级', 10);
-INSERT INTO `property` VALUES (131, '空调类型', 10);
-INSERT INTO `property` VALUES (132, '分辨率', 10);
-INSERT INTO `property` VALUES (133, '工作方式', 10);
-INSERT INTO `property` VALUES (134, '适用面积', 10);
-INSERT INTO `property` VALUES (135, '产品类型', 10);
-INSERT INTO `property` VALUES (136, '使用方式', 10);
-INSERT INTO `property` VALUES (137, '电机类型', 10);
+INSERT INTO `property` VALUES (122, '证书编号', 2);
+INSERT INTO `property` VALUES (123, '证书状态', 2);
+INSERT INTO `property` VALUES (124, '产品名称', 2);
+INSERT INTO `property` VALUES (125, '3C规格型号', 2);
+INSERT INTO `property` VALUES (127, '保修期', 2);
+INSERT INTO `property` VALUES (128, '品牌', 2);
+INSERT INTO `property` VALUES (129, '型号', 2);
+INSERT INTO `property` VALUES (130, '能效等级', 2);
+INSERT INTO `property` VALUES (131, '空调类型', 2);
+INSERT INTO `property` VALUES (132, '分辨率', 2);
+INSERT INTO `property` VALUES (133, '工作方式', 2);
+INSERT INTO `property` VALUES (134, '适用面积', 2);
+INSERT INTO `property` VALUES (135, '产品类型', 2);
+INSERT INTO `property` VALUES (136, '使用方式', 2);
+INSERT INTO `property` VALUES (137, '电机类型', 2);
 INSERT INTO `property` VALUES (138, '品牌', 11);
 INSERT INTO `property` VALUES (139, '型号', 11);
 INSERT INTO `property` VALUES (140, '安装辅材包', 11);
@@ -5777,7 +5805,7 @@ CREATE TABLE `propertyvalue`  (
   INDEX `propertyvalue_product_id`(`propertyvalue_product_id`) USING BTREE,
   CONSTRAINT `propertyvalue_ibfk_1` FOREIGN KEY (`propertyvalue_property_id`) REFERENCES `property` (`property_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `propertyvalue_ibfk_2` FOREIGN KEY (`propertyvalue_product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 717 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品属性管理表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 720 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '产品属性管理表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of propertyvalue
@@ -6499,6 +6527,9 @@ INSERT INTO `propertyvalue` VALUES (715, '1555', 1, 88);
 INSERT INTO `propertyvalue` VALUES (717, '绿色', 61, 93);
 INSERT INTO `propertyvalue` VALUES (718, '第二代骁龙8处理器', 60, 91);
 INSERT INTO `propertyvalue` VALUES (719, '黑色', 61, 91);
+INSERT INTO `propertyvalue` VALUES (720, 'vivoS16e', 58, 93);
+INSERT INTO `propertyvalue` VALUES (721, 'vivo', 59, 93);
+INSERT INTO `propertyvalue` VALUES (722, 'Exynos系列', 60, 93);
 
 -- ----------------------------
 -- Table structure for review
@@ -6518,7 +6549,7 @@ CREATE TABLE `review`  (
   CONSTRAINT `review_ibfk_1` FOREIGN KEY (`review_user_id`) REFERENCES `user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `review_ibfk_2` FOREIGN KEY (`review_product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `review_ibfk_3` FOREIGN KEY (`review_orderItem_id`) REFERENCES `productorderitem` (`productorderitem_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 79 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '评论表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 81 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '评论表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of review
@@ -6601,6 +6632,8 @@ INSERT INTO `review` VALUES (75, '111111111', '2018-05-23 00:00:00', 1, 42, 284)
 INSERT INTO `review` VALUES (76, '很好', '2023-03-06 16:38:27', 21, 41, 285);
 INSERT INTO `review` VALUES (77, '66666', '2023-03-06 22:41:32', 21, 44, 288);
 INSERT INTO `review` VALUES (78, '6666666666666', '2023-03-07 23:24:00', 21, 42, 289);
+INSERT INTO `review` VALUES (79, '6666666', '2023-03-10 17:14:38', 22, 93, 300);
+INSERT INTO `review` VALUES (80, '77777777777', '2023-03-10 17:15:34', 22, 44, 301);
 
 -- ----------------------------
 -- Table structure for user
@@ -6624,7 +6657,7 @@ CREATE TABLE `user`  (
   INDEX `user_homeplace`(`user_homeplace`) USING BTREE,
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`user_address`) REFERENCES `address` (`address_areaId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`user_homeplace`) REFERENCES `address` (`address_areaId`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
@@ -6638,7 +6671,7 @@ INSERT INTO `user` VALUES (9, '红豆豆', '豆豆', 'li19970622', '红豆豆', 
 INSERT INTO `user` VALUES (10, '兰文斌', '停车坐爱枫林晚', 'ln221397', '老男孩', 0, '2018-05-10', '511922', '130000', '599e3499-da42-494c-a1ab-85d0548a857a.jpg', 0);
 INSERT INTO `user` VALUES (11, '明明', '小明', 'li19970622', '红豆豆', 0, '2018-05-01', '110101', '130000', '025639f4-537a-4bdc-a9fb-279e9dfac1f8.jpg', 0);
 INSERT INTO `user` VALUES (12, '霜叶红于二月花', '王九日', 'a666', '', 0, '1999-10-01', '320583', '130000', '', 0);
-INSERT INTO `user` VALUES (13, '那倒是', '加尔奈特巴斯塔', 'ln221379', '', 0, '2018-05-04', '610113', '130000', '', 0);
+INSERT INTO `user` VALUES (13, '那倒是', '加尔奈特巴斯塔', 'ln221379', '', 0, '2018-05-04', '610113', '130000', '', 1);
 INSERT INTO `user` VALUES (14, '王999', '王恒', 'a999999999', '王蓝', 0, '1995-01-08', '230112', '130000', '', 0);
 INSERT INTO `user` VALUES (15, '我变强了', '李有生', 'a789', '', 0, '1980-09-04', '370102', '130000', '', 0);
 INSERT INTO `user` VALUES (16, '柯6', '我的兄弟叫顺溜', 'hui6', '柯旭', 1, '2001-01-07', '420102', '130000', '', 0);
@@ -6647,5 +6680,7 @@ INSERT INTO `user` VALUES (18, '西安', '西安', 'cc123.0', '西安', 0, '2018
 INSERT INTO `user` VALUES (19, 'b120', '人员', 'cc123.0', '其他', 0, '2018-05-01', '110101', '130000', '29baa916-f0e7-441c-bb0a-45dee0cdebb7.jpg', 0);
 INSERT INTO `user` VALUES (20, 'c120', 'aaa', 'cc123.0', '', 0, '2018-05-03', '110101', '130000', '', 0);
 INSERT INTO `user` VALUES (21, 'admin', '任意切换', 'admin', '', 0, '2018-05-09', '110101', '130000', '', 0);
+INSERT INTO `user` VALUES (22, 'ceshi111', 'ceshi11', 'cg5211314', 'ceshi111', 0, '2023-03-10', '140105', '140105', NULL, 0);
+INSERT INTO `user` VALUES (23, 'ceshi666', 'ceshi666', 'ceshi666', 'ceshi666', 0, '2023-04-14', '110101', '110101', NULL, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
