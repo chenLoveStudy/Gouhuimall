@@ -1,7 +1,7 @@
-# Springboot项目仿天猫商城
+# Springboot项目家电销售平台
 
 #### Description
-Springboot项目仿天猫商城 前台jsp页面
+Springboot项目家电销售平台 前台jsp页面
 
 #### Software Architecture
 Software architecture description

@@ -16,17 +16,17 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
- * 前台天猫-登陆页
+ * 前台家电销售平台-登陆页
  */
 @Controller
 public class ForeLoginController extends BaseController {
     @Autowired
     private UserService userService;
 
-    //转到前台天猫-登录页
+    //转到前台家电销售平台-登录页
     @GetMapping(value = "login")
     public String goToPage(HttpSession session, Map<String, Object> map) {
-        //转到前台天猫-登录页
+        //转到前台家电销售平台-登录页
         return "fore/loginPage";
     }
 

@@ -27,7 +27,7 @@
             border-bottom: 1px solid #e5e5e5;
         }
     </style>
-    <title>天猫-登录</title>
+    <title>家电销售平台-登录</title>
 </head>
 <body>
 <nav id="baseNavigator">
@@ -81,8 +81,8 @@
             </div>
             <div class="qrcodeFooter">
                 <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/scan_icon2.png">
-                <p>打开 <a href="https://www.tmall.com/wow/portal/act/app-download">手机购惠</a> | <a
-                        href="https://www.taobao.com/m">手机淘宝</a>扫一扫登录</p>
+                <p>打开 <a href="https://www.tmall.com/wow/portal/act/app-download">手机家电销售平台</a> | <a
+                        href="https://www.taobao.com/m">手机家电销售平台</a>扫一扫登录</p>
             </div>
             <div class="loginLinks">
                 <a href="JavaScript:void(0)" id="pwdLogin">密码登录</a>

@@ -133,7 +133,7 @@
         function getChildPage(obj) {
             //设置样式
             $("#div_home_title").children("span").text("用户详情");
-            document.title = "购惠商城管理后台 - 用户详情";
+            document.title = "家电销售平台管理后台 - 用户详情";
             //ajax请求页面
             ajaxUtil.getPage("user/" + $(obj).parents("tr").find(".user_id").text(), null, true);
         }

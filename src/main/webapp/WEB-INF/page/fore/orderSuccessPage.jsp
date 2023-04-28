@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_orderSuccessPage.css" rel="stylesheet"/>
-    <title>交易成功 - 购惠网</title>
+    <title>交易成功 - 家电销售平台</title>
 </head>
 <body>
 <nav>
@@ -31,7 +31,7 @@
                 <div class="successInfo">
                     <ul class="info-rate-coin">
                         <li>
-                            <span class="review_msg">认真填写商品评价，就有机会获得20点天猫达人经验值！</span>
+                            <span class="review_msg">认真填写商品评价，就有机会获得20点家电销售平台达人经验值！</span>
                             <a class="J_makePoint"
                                href="${pageContext.request.contextPath}/review/${requestScope.orderItem.productOrderItem_id}">
                                 <img src="${pageContext.request.contextPath}/res/images/item/productSinglePicture/${requestScope.product.singleProductImageList[0].productImage_src}"

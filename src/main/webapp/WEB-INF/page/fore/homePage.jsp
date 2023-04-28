@@ -4,7 +4,7 @@
     <script src="${pageContext.request.contextPath}/res/js/jquery-color-2.1.2.js"></script>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_home.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_home.css" rel="stylesheet"/>
-    <title>购惠网</title>
+    <title>家电销售平台</title>
 </head>
 <body>
 <nav>
@@ -21,7 +21,7 @@
             </form>
             <ul>
                 <c:forEach items="${requestScope.categoryList}" var="category" varStatus="i">
-                    <c:if test="${i.index<9}">
+                    <c:if test="${i.index<8}">
                         <li><a href="${pageContext.request.contextPath}/product?category_id=${category.category_id}"
                                 <c:if
                                 test="${i.index % 2 != 0}"> style="color: #FF0036"</c:if>>${fn:substring(category.category_name,0,fn:indexOf(category.category_name,' /'))}</a>
@@ -36,18 +36,15 @@
             <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/header_nav_title.png">
             <span>商品分类</span>
         </div>
-        <a href="#" target="_blank"><img
-                src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1ztBlaMMPMeJjy1XbXXcwxVXa-200-60.png"></a>
-        <a href="#" target="_blank"><img
-                src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1t5ObaBxRMKJjy0FdXXaifFXa-200-60.png"></a>
-        <a href="http://vip.tmall.com/" target="_blank">购惠会员</a>
-        <a href="https://3c.tmall.com/" target="_blank">电器城</a>
-        <a href="https://miao.tmall.com/" target="_blank">购惠鲜生</a>
-        <a href="http://yao.tmall.com/" target="_blank">医药馆</a>
-        <a href="http://wt.tmall.com/" target="_blank">营业厅</a>
-        <a href="https://meilihui.tmall.com/" target="_blank">魅力惠</a>
-        <a href="https://www.alitrip.com/" target="_blank">飞猪旅行</a>
-        <a href="https://suning.tmall.com/" target="_blank">苏宁易购</a>
+<%--        <a href="#" target="_blank"><img--%>
+<%--                src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1ztBlaMMPMeJjy1XbXXcwxVXa-200-60.png"></a>--%>
+<%--        <a href="#" target="_blank"><img--%>
+<%--                src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1t5ObaBxRMKJjy0FdXXaifFXa-200-60.png"></a>--%>
+<%--        <a href="#" target="_blank">电视</a>--%>
+<%--        <a href="#" target="_blank">空调</a>--%>
+<%--        <a href="#" target="_blank">洗衣机</a>--%>
+<%--        <a href="#" target="_blank">冰箱</a>--%>
+
     </div>
 </nav>
 <div class="banner">

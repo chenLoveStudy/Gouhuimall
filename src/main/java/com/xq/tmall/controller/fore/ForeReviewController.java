@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * 前台天猫-评论添加
+ * 前台家电销售平台-评论添加
  */
 @Controller
 public class ForeReviewController extends BaseController {
@@ -37,7 +37,7 @@ public class ForeReviewController extends BaseController {
     private ProductImageService productImageService;
     public static final String URL = "redirect:/order/0/10";
 
-    //转到前台天猫-评论添加页
+    //转到前台家电销售平台-评论添加页
     @GetMapping(value = "review/{orderItem_id}")
     public String goToPage(HttpSession session, Map<String, Object> map,
                            @PathVariable("orderItem_id") Integer orderItem_id) {
@@ -82,7 +82,7 @@ public class ForeReviewController extends BaseController {
 
         map.put("orderItem", orderItem);
 
-        //转到前台天猫-评论添加页
+        //转到前台家电销售平台-评论添加页
         return "fore/addReview";
     }
 

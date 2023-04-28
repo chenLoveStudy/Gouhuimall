@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_addReview.css" rel="stylesheet"/>
-    <title>添加评论 - 购惠网</title>
+    <title>添加评论 - 家电销售平台</title>
     <script>
         $(function () {
             $("#review_form").submit(function () {

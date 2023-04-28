@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 前台天猫-主页
+ * 前台家电销售平台-主页
  */
 @Controller
 public class ForeHomeController extends BaseController {
@@ -38,7 +38,7 @@ public class ForeHomeController extends BaseController {
     @Autowired
     private ProductImageService productImageService;
 
-    //转到前台天猫-主页
+    //转到前台家电销售平台-主页
     @GetMapping(value = "/")
     public String goToPage(HttpSession session, Map<String, Object> map) {
         //检查用户是否登录
@@ -75,7 +75,7 @@ public class ForeHomeController extends BaseController {
         return "fore/homePage";
     }
 
-    //转到前台天猫-错误页
+    //转到前台家电销售平台-错误页
     @GetMapping(value = "error")
     public String goToErrorPage() {
         return "fore/errorPage";

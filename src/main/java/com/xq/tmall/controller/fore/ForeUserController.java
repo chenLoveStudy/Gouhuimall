@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * 前台天猫-用户
+ * 前台家电销售平台-用户
  */
 @Controller
 public class ForeUserController extends BaseController {
@@ -33,7 +33,7 @@ public class ForeUserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    //转到前台天猫-用户详情页
+    //转到前台家电销售平台-用户详情页
     @GetMapping(value = "userDetails")
     public String goToUserDetail(HttpSession session, Map<String, Object> map) {
         //检查用户是否登录
@@ -65,7 +65,7 @@ public class ForeUserController extends BaseController {
         }
     }
 
-    //前台天猫-用户更换头像
+    //前台家电销售平台-用户更换头像
     @ResponseBody
     @PostMapping(value = "user/uploadUserHeadImage", produces = "application/json;charset=utf-8")
     public String uploadUserHeadImage(@RequestParam MultipartFile file, HttpSession session
@@ -94,7 +94,7 @@ public class ForeUserController extends BaseController {
         return String.valueOf(jsonObject);
     }
 
-    //前台天猫-用户详情更新
+    //前台家电销售平台-用户详情更新
     @PostMapping(value = "user/update", produces = "application/json;charset=utf-8")
     public String userUpdate(HttpSession session, Map<String, Object> map,
                              @RequestParam(value = "user_nickname") String user_nickname  /*用户昵称 */,

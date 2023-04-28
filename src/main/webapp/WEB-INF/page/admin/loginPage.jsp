@@ -3,7 +3,7 @@
 <head>
     <script src="${pageContext.request.contextPath}/res/js/admin/admin_login.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/admin/admin_login.css"/>
-    <title>购惠商城管理后台</title>
+    <title>家电销售平台管理后台</title>
 </head>
 <body>
 <div id="div_background">
@@ -29,7 +29,7 @@
         </ul>
     </div>
     <div id="div_main">
-        <div id="div_head"><p>购惠商城<span>管理后台</span></p></div>
+        <div id="div_head"><p>家电销售平台<span>管理后台</span></p></div>
         <div id="div_content">
             <img id="img_profile_picture"
                  src="${pageContext.request.contextPath}/res/images/admin/loginPage/default_profile_picture-128x128.png"

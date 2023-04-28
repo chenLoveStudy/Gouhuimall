@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * 前台天猫-地址
+ * 前台家电销售平台-地址
  */
 @Controller
 public class ForeAddressController extends BaseController {

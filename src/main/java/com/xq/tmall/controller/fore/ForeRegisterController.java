@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 前台天猫-用户注册
+ * 前台家电销售平台-用户注册
  */
 @Controller
 public class ForeRegisterController extends BaseController {
@@ -26,7 +26,7 @@ public class ForeRegisterController extends BaseController {
     @Autowired
     private UserService userService;
 
-    //转到前台天猫-用户注册页
+    //转到前台家电销售平台-用户注册页
     @GetMapping(value = "register")
     public String goToPage(Map<String, Object> map) {
         String addressId = "110000";
@@ -46,7 +46,7 @@ public class ForeRegisterController extends BaseController {
         return "fore/register";
     }
 
-    //天猫前台-用户注册-ajax
+    //家电销售平台前台-用户注册-ajax
     @ResponseBody
     @PostMapping(value = "register/doRegister", produces = "application/json;charset=UTF-8")
     public String register(

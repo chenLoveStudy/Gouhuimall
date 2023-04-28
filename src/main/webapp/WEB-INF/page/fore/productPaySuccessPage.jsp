@@ -54,19 +54,19 @@
                         <strong>安全提醒：</strong>
                         <span class="info">下单后，</span>
                         <span class="warn">用QQ给您发送链接办理退款的都是骗子</span>
-                        <span class="info">！天猫不存在系统升级，订单异常等问题，谨防假冒客服电话诈骗！</span>
+                        <span class="info">！家电销售平台不存在系统升级，订单异常等问题，谨防假冒客服电话诈骗！</span>
                     </p>
                 </li>
             </ul>
         </div>
         <div id="J_Qrcode">
             <div class="mui-tm">
-                <a target="_blank" href="http://pages.tmall.com/wow/portal/act/app-download">
-                    <img class="type2-info"
-                         src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1c1dwRFXXXXaMapXXXXXXXXXX-259-81.png"/>
-                    <img class="type2-qrcode"
-                         src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1A2aISXXXXXX4XXXXwu0bFXXX.png"/>
-                </a>
+<%--                <a target="_blank" href="http://pages.tmall.com/wow/portal/act/app-download">--%>
+<%--                    <img class="type2-info"--%>
+<%--                         src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1c1dwRFXXXXaMapXXXXXXXXXX-259-81.png"/>--%>
+<%--                    <img class="type2-qrcode"--%>
+<%--                         src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1A2aISXXXXXX4XXXXwu0bFXXX.png"/>--%>
+<%--                </a>--%>
             </div>
         </div>
     </div>

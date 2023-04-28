@@ -18,7 +18,7 @@
         <p id="container_login">
             <c:choose>
                 <c:when test="${requestScope.user.user_name==null}">
-                    <em>欢迎来到购惠商城</em>
+                    <em>欢迎来到家电销售平台</em>
                     <a href="${pageContext.request.contextPath}/login">请登录</a>
                     <a href="${pageContext.request.contextPath}/register">免费注册</a>
                 </c:when>
@@ -33,7 +33,7 @@
         <ul class="quick_li">
             <li class="quick_li_MyTaobao">
                 <div class="sn_menu">
-                    <a href="${pageContext.request.contextPath}/userDetails">我的购惠<b></b></a>
+                    <a href="${pageContext.request.contextPath}/userDetails">我的家电销售平台<b></b></a>
                     <div class="quick_menu">
                         <a href="${pageContext.request.contextPath}/order/0/10">已买到的宝贝</a>
                         <a href="#">已卖出的宝贝</a>
@@ -56,13 +56,13 @@
             <li class="quick_li_separator"></li>
             <li class="quick_li_mobile">
                 <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/mobile.png">
-                <a href="#" title="天猫无线">手机版</a>
+                <a href="#" title="家电销售平台无线">手机版</a>
                 <div class="quick_qrcode">
                     <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/qrcode.png">
                     <b></b>
                 </div>
             </li>
-            <li class="quick_home"><a href="${pageContext.request.contextPath}">购惠网</a></li>
+            <li class="quick_home"><a href="${pageContext.request.contextPath}">家电销售平台</a></li>
             <li class="quick_DirectPromo">
                 <div class="sn_menu">
                     <a href="#">商家支持<b></b></a>
@@ -71,13 +71,12 @@
                             <li>
                                 <h3>商家：</h3>
                                 <a href="">商家中心</a>
-                                <a href="">购惠规则</a>
+                                <a href="">家电销售平台规则</a>
                                 <a href="">商家入驻</a>
                                 <a href="">运营服务</a>
                                 <a href="">商家品控</a>
                                 <a href="">商家工具</a>
-                                <a href="">购惠智库</a>
-                                <a href="">喵言喵语</a>
+                                <a href="">家电销售平台智库</a>
                             </li>
                             <li>
                                 <h3>帮助：</h3>
@@ -95,50 +94,50 @@
                         <div class="site-hot">
                             <h2>热点推荐<span>Hot</span></h2>
                             <ul>
-                                <li><a href="">购惠生活</a></li>
-                                <li><a href="">喵鲜生</a></li>
-                                <li><a href="">科技新品</a></li>
-                                <li><a href="">女装新品</a></li>
-                                <li><a href="">酷玩街</a></li>
-                                <li><a href="">内衣新品</a></li>
-                                <li><a href="">试美妆</a></li>
-                                <li><a href="">运动新品</a></li>
-                                <li><a href="">时尚先生</a></li>
-                                <li><a href="">精明妈咪</a></li>
-                                <li><a href="">吃乐会</a></li>
-                                <li><a href="">企业采购</a></li>
-                                <li><a href="">会员积分</a></li>
-                                <li><a href="">购惠电器</a></li>
-                                <li><a href="">品质频道</a></li>
+                                <li><a href="">家电销售平台生活</a></li>
+                                <li><a href="">电视</a></li>
+                                <li><a href="">冰箱</a></li>
+                                <li><a href="">空调</a></li>
+                                <li><a href="">洗衣机</a></li>
+                                <li><a href="">生活电器</a></li>
+                                <li><a href="">厨房大电</a></li>
+                                <li><a href="">厨房小电</a></li>
+                                <li><a href="">清洁电器</a></li>
+                                <li><a href="">保健电器</a></li>
+                                <li><a href="">电暖器具</a></li>
+                                <li><a href="">声像电器</a></li>
+                                <li><a href="">整容保健电器</a></li>
+                                <li><a href="">照明电器</a></li>
+                                <li><a href="">其他电器</a></li>
                             </ul>
                         </div>
-                        <div class="site-market">
-                            <h2>行业市场<span>Market</span></h2>
-                            <ul>
-                                <li><a href="">美妆</a></li>
-                                <li><a href="">电器</a></li>
-                                <li><a href="">女装</a></li>
-                                <li><a href="">男装</a></li>
-                                <li><a href="">女鞋</a></li>
-                                <li><a href="">男鞋</a></li>
-                                <li><a href="">内衣</a></li>
-                                <li><a href="">箱包</a></li>
-                                <li><a href="">运动</a></li>
-                                <li><a href="">母婴</a></li>
-                                <li><a href="">家装</a></li>
-                                <li><a href="">医药</a></li>
-                                <li><a href="">食品</a></li>
-                                <li><a href="">配饰</a></li>
-                                <li><a href="">汽车</a></li>
-                            </ul>
-                        </div>
+<%--                        <div class="site-market">--%>
+<%--                            <h2>行业市场<span>Market</span></h2>--%>
+<%--                            <ul>--%>
+<%--                                <li><a href="">美妆</a></li>--%>
+<%--                                <li><a href="">电器</a></li>--%>
+<%--                                <li><a href="">女装</a></li>--%>
+<%--                                <li><a href="">男装</a></li>--%>
+<%--                                <li><a href="">女鞋</a></li>--%>
+<%--                                <li><a href="">男鞋</a></li>--%>
+<%--                                <li><a href="">内衣</a></li>--%>
+<%--                                <li><a href="">箱包</a></li>--%>
+<%--                                <li><a href="">运动</a></li>--%>
+<%--                                <li><a href="">母婴</a></li>--%>
+<%--                                <li><a href="">家装</a></li>--%>
+<%--                                <li><a href="">医药</a></li>--%>
+<%--                                <li><a href="">食品</a></li>--%>
+<%--                                <li><a href="">配饰</a></li>--%>
+<%--                                <li><a href="">汽车</a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
                         <div class="site-brand">
                             <h2>品牌风尚<span>Brand</span></h2>
                             <ul>
-                                <li><a href="">购惠网</a></li>
-                                <li><a href="">大牌街</a></li>
-                                <li><a href="">潮牌街</a></li>
-                                <li><a href="">购惠原创</a></li>
+                                <li><a href="">家电销售平台</a></li>
+                                <li><a href="">家电</a></li>
+                                <li><a href="">电器</a></li>
+                                <li><a href="">家电销售平台原创</a></li>
                                 <li><a href="">什么牌子好</a></li>
                             </ul>
                         </div>

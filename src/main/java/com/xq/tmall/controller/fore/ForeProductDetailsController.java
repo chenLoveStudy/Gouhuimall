@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * 前台天猫-产品详情页
+ * 前台家电销售平台-产品详情页
  */
 @Controller
 public class ForeProductDetailsController extends BaseController {
@@ -41,7 +41,7 @@ public class ForeProductDetailsController extends BaseController {
     @Autowired
     private ProductOrderItemService productOrderItemService;
 
-    //转到前台天猫-产品详情页
+    //转到前台家电销售平台-产品详情页
     @GetMapping(value = "product/{pid}")
     public String goToPage(HttpSession session, Map<String, Object> map,
                            @PathVariable("pid") String pid /*产品ID*/) {

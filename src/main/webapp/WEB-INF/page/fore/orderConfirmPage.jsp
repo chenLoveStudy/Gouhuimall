@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_orderConfirmPage.css" rel="stylesheet"/>
-    <title>确认收货 - 购惠网</title>
+    <title>确认收货 - 家电销售平台</title>
     <script>
 
     </script>
@@ -110,7 +110,7 @@
             <tr>
                 <td colspan="4">
                     <span class="info_label">卖家商铺昵称：</span>
-                    <span class="info_value">购惠模拟旗舰店</span>
+                    <span class="info_value">家电销售平台模拟旗舰店</span>
                 </td>
             </tr>
             <tr>

@@ -4,7 +4,7 @@
 <head>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_userDatiles.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_userDatiles.css" rel="stylesheet">
-    <title>购惠网 - 个人中心</title>
+    <title>家电销售平台 - 个人中心</title>
     <style rel="stylesheet">
         #baseNavigator {
             padding: 22px 0;
